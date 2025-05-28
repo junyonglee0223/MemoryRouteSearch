@@ -91,23 +91,24 @@ fun MemoryRouteGame() {
         }
     ) {
         Scaffold(
-            topBar = {
-                SmallTopAppBar(
-                    title = { Text("Memory Route Search") },
-                    navigationIcon = {
-                        IconButton(onClick = {
-                            coroutineScope.launch { drawerState.open() } // 사이드바 열기
-                        }) {
-                            Icon(Icons.Default.Menu, contentDescription = "Menu")
+                topBar = {
+                    TopAppBar(
+                        title = { Text("Memory Route Search") },
+                        navigationIcon = {
+                            IconButton(onClick = {
+                                coroutineScope.launch { drawerState.open() }
+                            }) {
+                                Icon(Icons.Filled.Menu, contentDescription = "Menu")
+                            }
                         }
-                    }
-                )
-            },
-            content = { paddingValues ->
+                    )
+                }
+            ){  innerPadding ->
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(paddingValues),
+                        //.padding(paddingValues),
+                        .padding(innerPadding),
                     verticalArrangement = Arrangement.SpaceBetween,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -198,7 +199,7 @@ fun MemoryRouteGame() {
                     }
                 }
             }
-        )
+
     }
 }
 
